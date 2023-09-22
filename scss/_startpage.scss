@@ -1,3 +1,6 @@
+@use "variables" as v;
+@use "mixins" as m;
+
 * {
   margin: 0;
   padding: 0;
@@ -12,9 +15,10 @@ header {
   background-image: url(../assets/negative-space-black-forest-dawn.jpg);
   background-position: center;
   background-size: cover;
+
   height: 100vh;
   width: 100%;
-  color: white;
+  color: v.$primary-color;
 }
 
 .nav__list {
@@ -22,12 +26,13 @@ header {
   flex-direction: column;
   align-items: center;
   list-style: none;
-}
-.nav__list a {
-  text-decoration: none;
-  color: white;
-  font-size: 1.2rem;
-  line-height: 1.2;
+
+  & a {
+    text-decoration: none;
+    color: v.$primary-color;
+    font-size: 1.2rem;
+    line-height: 1.2;
+  }
 }
 
 .header__container {
@@ -35,30 +40,34 @@ header {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-}
-.header__container .header__title {
-  letter-spacing: 0.8px;
-  margin-bottom: 30px;
-}
-.header__container .header__text {
-  padding: 30px 40px;
-  font-size: 1.5rem;
-  text-align: center;
-  letter-spacing: 0.8px;
+
+  .header__title {
+    letter-spacing: 0.8px;
+    margin-bottom: 30px;
+  }
+
+  .header__text {
+    padding: 30px 40px;
+    font-size: 1.5rem;
+    text-align: center;
+    letter-spacing: 0.8px;
+  }
 }
 
 .arrow__container {
   text-align: center;
-}
-.arrow__container #arrow--down {
-  background-color: white;
-  color: black;
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding: 5px;
-  margin-bottom: 30px;
-  border-radius: 50%;
-  width: 37px;
+
+  #arrow--down {
+    background-color: white;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    padding: 5px;
+    margin-bottom: 30px;
+    border-radius: 50%;
+    width: 37px;
+  }
 }
 
 main {
@@ -80,43 +89,24 @@ main {
 }
 
 .main__pic--rakib {
+  //gör media query
   background-image: url(../assets/profiles/Rakib_Square.png);
-  background-position: center;
-  background-size: cover;
-  border-radius: 50%;
-  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
-  height: 28vh;
-  width: 70%;
+  @include m.profileInfo();
 }
 
 .main__pic--alexandra {
   background-image: url(../assets/profiles/Alexandra_Square.png);
-  background-position: center;
-  background-size: cover;
-  border-radius: 50%;
-  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
-  height: 28vh;
-  width: 70%;
+  @include m.profileInfo();
 }
 
 .main__pic--lasse {
   background-image: url(../assets/profiles/NoPerson_Square.png);
-  background-position: center;
-  background-size: cover;
-  border-radius: 50%;
-  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
-  height: 28vh;
-  width: 70%;
+  @include m.profileInfo();
 }
 
 .main__pic--sebastian {
   background-image: url(../assets/profiles/Sebastian_Square.png);
-  background-position: center;
-  background-size: cover;
-  border-radius: 50%;
-  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
-  height: 28vh;
-  width: 70%;
+  @include m.profileInfo();
 }
 
 .main__description {
@@ -126,5 +116,3 @@ main {
   padding: 30px;
   border-radius: 5px;
 }
-
-/*# sourceMappingURL=main.css.map */
