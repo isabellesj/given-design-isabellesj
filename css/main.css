@@ -50,15 +50,23 @@ header {
 .arrow__container {
   text-align: center;
 }
-.arrow__container #arrow--down {
+.arrow__container #arrow--white {
+  font-size: 1.5rem;
+  width: 37px;
+  border-radius: 50%;
+  padding: 5px;
   background-color: white;
   color: black;
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding: 5px;
   margin-bottom: 30px;
-  border-radius: 50%;
+}
+.arrow__container #arrow--black {
+  font-size: 1.5rem;
   width: 37px;
+  border-radius: 50%;
+  padding: 5px;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  margin-top: 20px;
 }
 
 main {
@@ -85,8 +93,8 @@ main {
   background-size: cover;
   border-radius: 50%;
   box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
-  height: 28vh;
-  width: 70%;
+  height: 300px;
+  width: 300px;
 }
 
 .main__pic--alexandra {
@@ -95,8 +103,8 @@ main {
   background-size: cover;
   border-radius: 50%;
   box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
-  height: 28vh;
-  width: 70%;
+  height: 300px;
+  width: 300px;
 }
 
 .main__pic--lasse {
@@ -105,8 +113,8 @@ main {
   background-size: cover;
   border-radius: 50%;
   box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
-  height: 28vh;
-  width: 70%;
+  height: 300px;
+  width: 300px;
 }
 
 .main__pic--sebastian {
@@ -115,8 +123,8 @@ main {
   background-size: cover;
   border-radius: 50%;
   box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
-  height: 28vh;
-  width: 70%;
+  height: 300px;
+  width: 300px;
 }
 
 .main__description {
@@ -125,6 +133,44 @@ main {
   background-color: lightgray;
   padding: 30px;
   border-radius: 5px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 65vh;
+  font-size: 1.5rem;
+  color: white;
+  background-color: black;
+}
+.footer .footer__wrapper {
+  line-height: 50px;
+  margin-top: 30px;
+}
+.footer .footer__wrapper .footer__adress,
+.footer .footer__wrapper .footer__contact,
+.footer .footer__wrapper .footer__socials {
+  margin-bottom: 30px;
+}
+
+.footer__socials {
+  display: flex;
+  gap: 20px;
+}
+
+.socials__icons {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-top: 8px;
+}
+
+.socials__name {
+  display: flex;
+  flex-direction: column;
+  line-height: 50px;
 }
 
 /*# sourceMappingURL=main.css.map */

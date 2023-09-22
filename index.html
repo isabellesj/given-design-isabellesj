@@ -11,7 +11,7 @@
     />
   </head>
   <body>
-    <header>
+    <header id="header">
       <ul class="nav__list">
         <li><a href="#">Hem</a></li>
         <li><a href="#">Om</a></li>
@@ -27,7 +27,7 @@
       </div>
 
       <a class="arrow__container" href="#main"
-        ><i id="arrow--down" class="fa-solid fa-arrow-down"></i
+        ><i id="arrow--white" class="fa-solid fa-arrow-down"></i
       ></a>
     </header>
 
@@ -37,27 +37,73 @@
       <p class="main__name">Rakib</p>
       <div class="main__pic--rakib"></div>
       <p class="main__description">
-        <i style="font-size: 2rem" class="fa">&#xf10e;</i>Rakib är vår vassaste
+        <i class="fa-solid fa-quote-right"></i> Rakib är vår vassaste
         node-utvecklare och håller ständigt ett öga på nya tekniker
       </p>
 
       <p class="main__name">Alexandra</p>
       <div class="main__pic--alexandra"></div>
       <p class="main__description">
-        "Alexandra håller reda på alla överallt och ser till att det flyter
+        <i class="fa-solid fa-quote-right"></i>
+        Alexandra håller reda på alla överallt och ser till att det flyter
       </p>
 
       <p class="main__name">Lasse</p>
       <div class="main__pic--lasse"></div>
-      <p class="main__description">"Gör övriga saker... mestadels...</p>
+      <p class="main__description">
+        <i class="fa-solid fa-quote-right"></i>Gör övriga saker... mestadels...
+      </p>
 
       <p class="main__name">Sebastian</p>
       <div class="main__pic--sebastian"></div>
       <p class="main__description">
-        "En av våra utbildare som har stor erfarenhet av ganska många saker
+        <i class="fa-solid fa-quote-right"></i>
+        En av våra utbildare som har stor erfarenhet av ganska många saker
       </p>
+
+      <a class="arrow__container" href="#footer"
+        ><i id="arrow--black" class="fa-solid fa-arrow-down"></i
+      ></a>
     </main>
 
-    <footer></footer>
+    <footer class="footer" id="footer">
+      <section class="footer__wrapper">
+        <article class="footer__adress">
+          <p>Tegel Consulting AB</p>
+          <p>Agatavägen 18</p>
+          <p>168 60 Bromma</p>
+        </article>
+
+        <article class="footer__contact">
+          <p>info at tegelconsulting.se</p>
+          <p>070-123 456 78</p>
+        </article>
+
+        <article class="footer__socials">
+          <article class="socials__icons">
+            <i
+              id="icon--instagram"
+              class="fa-brands fa-instagram"
+              style="color: #ffffff"
+            ></i>
+            <i
+              id="icon--twitter"
+              class="fa-brands fa-twitter"
+              style="color: #ffffff"
+            ></i>
+            <i
+              id="icon--facebook"
+              class="fa-brands fa-facebook-f"
+              style="color: #ffffff"
+            ></i>
+          </article>
+          <article class="socials__name">
+            <p>Instagram</p>
+            <p>Twitter</p>
+            <p>Facebook</p>
+          </article>
+        </article>
+      </section>
+    </footer>
   </body>
 </html>
