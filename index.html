@@ -12,11 +12,19 @@
   </head>
   <body>
     <header id="header">
-      <ul class="nav__list">
-        <li><a href="#">Hem</a></li>
-        <li><a href="#">Om</a></li>
-        <li><a href="#">Kontakt</a></li>
-      </ul>
+      <div class="header__div">
+        <input class="side-menu" type="checkbox" id="side-menu" />
+        <label class="hamb" for="side-menu"
+          ><span class="hamb-line"></span
+        ></label>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li><a href="#header">Hem</a></li>
+            <li><a href="#main">Om</a></li>
+            <li><a href="#footer">Kontakt</a></li>
+          </ul>
+        </nav>
+      </div>
 
       <div class="header__container">
         <h1 class="header__title">Welcome to nature</h1>

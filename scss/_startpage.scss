@@ -1,5 +1,6 @@
 @use "variables" as v;
 @use "mixins" as m;
+@use "animations";
 
 * {
   margin: 0;
@@ -21,18 +22,85 @@ header {
   color: v.$primary-color;
 }
 
+.hamb {
+  cursor: pointer;
+  padding: 30px 20px;
+  display: flex;
+  justify-content: flex-end;
+  background-color: rgba($color: v.$primary-color, $alpha: 0.1);
+
+  &-line {
+    background-color: v.$primary-color;
+    height: 4px;
+    width: 27px;
+    border-radius: 5px;
+    position: relative;
+
+    &::before,
+    &::after {
+      background-color: v.$primary-color;
+      content: "";
+      display: block; //annars kan inte placering justeras på before och after
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    &::before {
+      top: 9px;
+    }
+
+    &::after {
+      top: -9px;
+    }
+  }
+}
+
+.side-menu {
+  display: none; //checkboxen
+}
+
 .nav__list {
   display: flex;
   flex-direction: column;
   align-items: center;
   list-style: none;
+  visibility: hidden;
 
   & a {
     text-decoration: none;
     color: v.$primary-color;
     font-size: 1.2rem;
     line-height: 1.2;
+
+    &:active {
+      text-decoration: underline;
+    }
   }
+}
+
+.side-menu:checked ~ nav .nav__list {
+  visibility: visible;
+  background-color: rgba($color: v.$primary-color, $alpha: 0.1);
+}
+
+.side-menu:checked ~ .hamb .hamb-line::before {
+  animation: rotate-lower;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.side-menu:checked ~ .hamb .hamb-line::after {
+  animation: rotate-upper;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.side-menu:checked ~ .hamb .hamb-line {
+  animation: hidden;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
 }
 
 .header__container {

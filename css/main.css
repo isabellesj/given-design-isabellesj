@@ -1,3 +1,45 @@
+@keyframes hidden {
+  0% {
+    background-color: white;
+  }
+  50% {
+    background: rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    background: transparent;
+  }
+}
+@keyframes rotate-lower {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-45deg);
+    top: 10px;
+  }
+  50% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(-135deg);
+    top: 0;
+  }
+}
+@keyframes rotate-upper {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(45deg);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(135deg);
+    top: 0;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -17,17 +59,78 @@ header {
   color: white;
 }
 
+.hamb {
+  cursor: pointer;
+  padding: 30px 20px;
+  display: flex;
+  justify-content: flex-end;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.hamb-line {
+  background-color: white;
+  height: 4px;
+  width: 27px;
+  border-radius: 5px;
+  position: relative;
+}
+.hamb-line::before, .hamb-line::after {
+  background-color: white;
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+}
+.hamb-line::before {
+  top: 9px;
+}
+.hamb-line::after {
+  top: -9px;
+}
+
+.side-menu {
+  display: none;
+}
+
 .nav__list {
   display: flex;
   flex-direction: column;
   align-items: center;
   list-style: none;
+  visibility: hidden;
 }
 .nav__list a {
   text-decoration: none;
   color: white;
   font-size: 1.2rem;
   line-height: 1.2;
+}
+.nav__list a:active {
+  text-decoration: underline;
+}
+
+.side-menu:checked ~ nav .nav__list {
+  visibility: visible;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.side-menu:checked ~ .hamb .hamb-line::before {
+  animation: rotate-lower;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.side-menu:checked ~ .hamb .hamb-line::after {
+  animation: rotate-upper;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.side-menu:checked ~ .hamb .hamb-line {
+  animation: hidden;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
 }
 
 .header__container {
