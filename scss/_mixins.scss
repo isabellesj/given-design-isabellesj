@@ -1,4 +1,4 @@
-@mixin profile__info() {
+@mixin profile__info {
   background-position: center;
   background-size: cover;
   border-radius: 50%;
@@ -7,9 +7,12 @@
   width: 300px;
 }
 
-@mixin arrow() {
-  font-size: 1.5rem;
-  width: 37px;
-  border-radius: 50%;
-  padding: 5px;
+/*@mixin arrow {
+          ta bort??
+}*/
+
+@mixin tablet {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
 }
