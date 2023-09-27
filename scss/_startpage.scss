@@ -1,0 +1,250 @@
+@use "variables" as v;
+@use "mixins" as m;
+@use "animations";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+header {
+  @include m.flex-justify(column, space-between);
+  background-image: url(../assets/negative-space-black-forest-dawn.jpg);
+  background-position: center;
+  background-size: cover;
+
+  @include m.size(100vh, 100%);
+  color: v.$primary-color;
+}
+
+.header__hamburger {
+  @include m.flex-justify(row, flex-end);
+  padding: 30px 20px;
+  background-color: rgba($color: v.$primary-color, $alpha: 0.1);
+
+  @include m.tablet() {
+    display: none;
+  }
+
+  &__line {
+    background-color: v.$primary-color;
+    @include m.size(4px, 27px);
+    border-radius: 5px;
+    position: relative;
+
+    &::before,
+    &::after {
+      background-color: v.$primary-color;
+      content: "";
+      position: absolute;
+      @include m.size(100%, 100%);
+      border-radius: 5px;
+    }
+
+    &::before {
+      top: 9px;
+    }
+    &::after {
+      top: -9px;
+    }
+  }
+}
+
+.header__checkbox {
+  display: none;
+}
+
+.nav__list {
+  @include m.flex-align(column, center);
+  list-style: none;
+  visibility: hidden;
+
+  @include m.tablet() {
+    @include m.flex-justify(row, flex-end);
+    visibility: visible;
+    background-color: rgba($color: v.$primary-color, $alpha: 0.1);
+  }
+
+  &__item {
+    @include m.tablet() {
+      margin: 20px 25px;
+    }
+
+    &__link {
+      text-decoration: none;
+      color: v.$primary-color;
+      font-size: 1.2rem;
+      line-height: 1.2;
+
+      &:active {
+        text-decoration: underline;
+      }
+
+      &:hover {
+        @include m.tablet() {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.header__checkbox:checked ~ nav .nav__list {
+  visibility: visible;
+  background-color: rgba($color: v.$primary-color, $alpha: 0.1);
+}
+
+.header__checkbox:checked
+  ~ .header__hamburger
+  .header__hamburger__line::before {
+  animation: rotate-lower;
+  animation-duration: 0.25s;
+  animation-fill-mode: forwards;
+}
+
+.header__checkbox:checked ~ .header__hamburger .header__hamburger__line::after {
+  animation: rotate-upper;
+  animation-duration: 0.25s;
+  animation-fill-mode: forwards;
+}
+
+.header__checkbox:checked ~ .header__hamburger .header__hamburger__line {
+  animation: hidden;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.header__container {
+  @include m.flex(column, space-between, center);
+  .header__title {
+    letter-spacing: 0.8px;
+    margin-bottom: 30px;
+  }
+
+  .header__text {
+    padding: 30px 40px;
+    font-size: 1.5rem;
+    text-align: center;
+    letter-spacing: 0.8px;
+  }
+}
+
+.arrow--white {
+  @include m.arrow;
+  color: v.$primary-color;
+}
+
+.arrow--black {
+  @include m.arrow;
+  color: black;
+  margin-top: 10px;
+}
+
+main {
+  @include m.flex-align(column, center);
+}
+
+.main__team__wrapper {
+  @include m.flex-align(column, center);
+  @include m.tablet {
+    @include m.flex-justify(row, space-evenly);
+    flex-wrap: wrap;
+  }
+}
+
+.main__team {
+  @include m.flex-align(column, center);
+  padding: 10px 40px;
+
+  @include m.tablet {
+    width: 40%;
+  }
+}
+
+.main__title {
+  margin-top: 20px;
+  letter-spacing: 0.8px;
+  text-align: center;
+}
+
+.main__name {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.main__pic--rakib {
+  background-image: url(../assets/profiles/Rakib_Square.png);
+  @include m.profile__info();
+}
+
+.main__pic--alexandra {
+  background-image: url(../assets/profiles/Alexandra_Square.png);
+  @include m.profile__info();
+}
+
+.main__pic--lasse {
+  background-image: url(../assets/profiles/NoPerson_Square.png);
+  @include m.profile__info();
+}
+
+.main__pic--sebastian {
+  background-image: url(../assets/profiles/Sebastian_Square.png);
+  @include m.profile__info();
+}
+
+.main__description {
+  margin-top: 20px;
+  background-color: lightgray;
+  padding: 30px 40px;
+  border-radius: 5px;
+}
+
+#quote {
+  font-size: 45px;
+}
+
+.footer {
+  @include m.flex(column, flex-start, center);
+  font-size: 1.5rem;
+  color: v.$primary-color;
+  background-color: black;
+  line-height: 50px;
+  margin-top: 10px;
+
+  @include m.tablet {
+    @include m.flex(row, space-around, start);
+    padding: 30px;
+  }
+
+  .footer__adress,
+  .footer__contact,
+  .footer__socials {
+    margin: 20px;
+    width: 250px;
+  }
+}
+
+.footer__socials {
+  @include m.flex(row, flex-start, start);
+  gap: 20px;
+}
+
+.socials__icons {
+  @include m.flex-align(column, start);
+  gap: 30px;
+  padding-top: 8px;
+}
+
+.socials__name {
+  @include m.flex-align(column, start);
+  line-height: 50px;
+
+  .socials__link {
+    text-decoration: none;
+    color: v.$primary-color;
+  }
+}

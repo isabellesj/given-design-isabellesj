@@ -4,6 +4,129 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Given design</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
   </head>
-  <body></body>
+  <body>
+    <header id="home">
+      <div class="header__nav__wrapper">
+        <input class="header__checkbox" type="checkbox" id="header__checkbox" />
+        <label class="header__hamburger" for="header__checkbox"
+          ><span class="header__hamburger__line"></span
+        ></label>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__list__item">
+              <a class="nav__list__item__link" href="#home">Hem</a>
+            </li>
+            <li class="nav__list__item">
+              <a class="nav__list__item__link" href="#about">Om</a>
+            </li>
+            <li class="nav__list__item">
+              <a class="nav__list__item__link" href="#contact">Kontakt</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="header__container">
+        <h1 class="header__title">Welcome to nature</h1>
+        <p class="header__text">A journey through time and sheep</p>
+        <p class="header__text">
+          To see how ...cotton ... is mage, made I mean...
+        </p>
+      </div>
+
+      <a class="arrow--white" href="#about"
+        ><i class="fa-solid fa-circle-down"></i
+      ></a>
+    </header>
+
+    <main id="about">
+      <h2 class="main__title">Träffa laget</h2>
+
+      <section class="main__team__wrapper">
+        <article class="main__team">
+          <p class="main__name">Rakib</p>
+          <div class="main__pic--rakib"></div>
+          <p class="main__description">
+            <i class="fa-solid fa-quote-right" id="quote"></i> Rakib är vår
+            vassaste node-utvecklare och håller ständigt ett öga på nya tekniker
+          </p>
+        </article>
+
+        <article class="main__team">
+          <p class="main__name">Alexandra</p>
+          <div class="main__pic--alexandra"></div>
+          <p class="main__description">
+            <i class="fa-solid fa-quote-right" id="quote"></i>
+            Alexandra håller reda på alla överallt och ser till att det flyter
+          </p>
+        </article>
+
+        <article class="main__team">
+          <p class="main__name">Lasse</p>
+          <div class="main__pic--lasse"></div>
+          <p class="main__description">
+            <i class="fa-solid fa-quote-right" id="quote"></i>Gör övriga
+            saker... mestadels ...
+          </p>
+        </article>
+
+        <article class="main__team">
+          <p class="main__name">Sebastian</p>
+          <div class="main__pic--sebastian"></div>
+          <p class="main__description">
+            <i class="fa-solid fa-quote-right" id="quote"></i>
+            En av våra utbildare som har stor erfarenhet av ganska många saker
+          </p>
+        </article>
+      </section>
+
+      <a class="arrow--black" href="#contact"
+        ><i class="fa-solid fa-circle-down"></i
+      ></a>
+    </main>
+
+    <footer class="footer" id="contact">
+      <article class="footer__adress">
+        <p>Tegel Consulting AB</p>
+        <p>Agatavägen 18</p>
+        <p>168 60 Bromma</p>
+      </article>
+
+      <article class="footer__contact">
+        <p>info at tegelconsulting.se</p>
+        <p>070-123 456 78</p>
+      </article>
+
+      <article class="footer__socials">
+        <article class="socials__icons">
+          <i
+            id="icon--instagram"
+            class="fa-brands fa-instagram"
+            style="color: #ffffff"
+          ></i>
+          <i
+            id="icon--twitter"
+            class="fa-brands fa-twitter"
+            style="color: #ffffff"
+          ></i>
+          <i
+            id="icon--facebook"
+            class="fa-brands fa-facebook-f"
+            style="color: #ffffff"
+          ></i>
+        </article>
+        <article class="socials__name">
+          <a class="socials__link" href="#">Instagram</a>
+          <a class="socials__link" href="#">Twitter</a>
+          <a class="socials__link" href="#">Facebook</a>
+        </article>
+      </article>
+    </footer>
+  </body>
 </html>
