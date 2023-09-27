@@ -139,27 +139,27 @@ header {
 .arrow--black {
   @include m.arrow;
   color: black;
+  margin-top: 10px;
 }
 
 main {
   @include m.flex-align(column, center);
 }
 
-.main__team {
-  @include m.flex-align(column, center);
-  padding: 20px 40px;
-
-  @include m.tablet {
-    width: 50%;
-    //padding: 20px 80px; --> kolla detta
-  }
-}
-
 .main__team__wrapper {
   @include m.flex-align(column, center);
   @include m.tablet {
-    flex-direction: row;
+    @include m.flex-justify(row, space-evenly);
     flex-wrap: wrap;
+  }
+}
+
+.main__team {
+  @include m.flex-align(column, center);
+  padding: 10px 40px;
+
+  @include m.tablet {
+    width: 40%;
   }
 }
 
@@ -213,6 +213,7 @@ main {
   color: v.$primary-color;
   background-color: black;
   line-height: 50px;
+  margin-top: 10px;
 
   @include m.tablet {
     @include m.flex(row, space-around, start);
@@ -228,8 +229,7 @@ main {
 }
 
 .footer__socials {
-  //kolla align + justify
-  display: flex;
+  @include m.flex(row, flex-start, start);
   gap: 20px;
 }
 

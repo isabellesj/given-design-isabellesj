@@ -78,7 +78,8 @@ header {
   border-radius: 5px;
   position: relative;
 }
-.header__hamburger__line::before, .header__hamburger__line::after {
+.header__hamburger__line::before,
+.header__hamburger__line::after {
   background-color: white;
   content: "";
   position: absolute;
@@ -138,7 +139,9 @@ header {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.header__checkbox:checked ~ .header__hamburger .header__hamburger__line::before {
+.header__checkbox:checked
+  ~ .header__hamburger
+  .header__hamburger__line::before {
   animation: rotate-lower;
   animation-duration: 0.25s;
   animation-fill-mode: forwards;
@@ -176,33 +179,22 @@ header {
 .arrow--white {
   text-align: center;
   font-size: 2rem;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   color: white;
 }
 
 .arrow--black {
   text-align: center;
   font-size: 2rem;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   color: black;
+  margin-top: 10px;
 }
 
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.main__team {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 40px;
-}
-@media screen and (min-width: 768px) {
-  .main__team {
-    width: 50%;
-  }
 }
 
 .main__team__wrapper {
@@ -212,8 +204,22 @@ main {
 }
 @media screen and (min-width: 768px) {
   .main__team__wrapper {
+    display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
     flex-wrap: wrap;
+  }
+}
+
+.main__team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 40px;
+}
+@media screen and (min-width: 768px) {
+  .main__team {
+    width: 40%;
   }
 }
 
@@ -290,6 +296,7 @@ main {
   color: white;
   background-color: black;
   line-height: 50px;
+  margin-top: 10px;
 }
 @media screen and (min-width: 768px) {
   .footer {
@@ -309,6 +316,9 @@ main {
 
 .footer__socials {
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: start;
   gap: 20px;
 }
 
