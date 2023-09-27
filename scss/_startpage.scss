@@ -10,33 +10,27 @@
 }
 
 header {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  @include m.flex-justify(column, space-between);
   background-image: url(../assets/negative-space-black-forest-dawn.jpg);
   background-position: center;
   background-size: cover;
 
-  height: 100vh;
-  width: 100%;
+  @include m.size(100vh, 100%);
   color: v.$primary-color;
 }
 
-.hamb {
-  cursor: pointer;
+.header__hamburger {
+  @include m.flex-justify(row, flex-end);
   padding: 30px 20px;
-  display: flex;
-  justify-content: flex-end;
   background-color: rgba($color: v.$primary-color, $alpha: 0.1);
 
   @include m.tablet() {
     display: none;
   }
 
-  &-line {
+  &__line {
     background-color: v.$primary-color;
-    height: 4px;
-    width: 27px;
+    @include m.size(4px, 27px);
     border-radius: 5px;
     position: relative;
 
@@ -44,38 +38,32 @@ header {
     &::after {
       background-color: v.$primary-color;
       content: "";
-      display: block; //annars kan inte placering justeras på before och after
       position: absolute;
-      height: 100%;
-      width: 100%;
+      @include m.size(100%, 100%);
       border-radius: 5px;
     }
 
     &::before {
       top: 9px;
     }
-
     &::after {
       top: -9px;
     }
   }
 }
 
-.side-menu {
-  display: none; //checkboxen
+.header__checkbox {
+  display: none;
 }
 
 .nav__list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include m.flex-align(column, center);
   list-style: none;
   visibility: hidden;
 
   @include m.tablet() {
+    @include m.flex-justify(row, flex-end);
     visibility: visible;
-    flex-direction: row;
-    justify-content: flex-end;
     background-color: rgba($color: v.$primary-color, $alpha: 0.1);
   }
 
@@ -83,55 +71,53 @@ header {
     @include m.tablet() {
       margin: 20px 25px;
     }
-  }
 
-  & a {
-    text-decoration: none;
-    color: v.$primary-color;
-    font-size: 1.2rem;
-    line-height: 1.2;
+    &__link {
+      text-decoration: none;
+      color: v.$primary-color;
+      font-size: 1.2rem;
+      line-height: 1.2;
 
-    &:active {
-      text-decoration: underline;
-    }
-
-    &:hover {
-      @include m.tablet() {
+      &:active {
         text-decoration: underline;
+      }
+
+      &:hover {
+        @include m.tablet() {
+          text-decoration: underline;
+        }
       }
     }
   }
 }
 
-.side-menu:checked ~ nav .nav__list {
+.header__checkbox:checked ~ nav .nav__list {
   visibility: visible;
   background-color: rgba($color: v.$primary-color, $alpha: 0.1);
 }
 
-.side-menu:checked ~ .hamb .hamb-line::before {
+.header__checkbox:checked
+  ~ .header__hamburger
+  .header__hamburger__line::before {
   animation: rotate-lower;
   animation-duration: 0.25s;
   animation-fill-mode: forwards;
 }
 
-.side-menu:checked ~ .hamb .hamb-line::after {
+.header__checkbox:checked ~ .header__hamburger .header__hamburger__line::after {
   animation: rotate-upper;
   animation-duration: 0.25s;
   animation-fill-mode: forwards;
 }
 
-.side-menu:checked ~ .hamb .hamb-line {
+.header__checkbox:checked ~ .header__hamburger .header__hamburger__line {
   animation: hidden;
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
 }
 
 .header__container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-
+  @include m.flex(column, space-between, center);
   .header__title {
     letter-spacing: 0.8px;
     margin-bottom: 30px;
@@ -146,49 +132,31 @@ header {
 }
 
 .arrow--white {
-  text-align: center;
-  font-size: 2rem; //gör mixin
-  margin-bottom: 20px;
-  color: white;
+  @include m.arrow;
+  color: v.$primary-color;
 }
 
 .arrow--black {
-  text-align: center;
-  font-size: 2rem; //gör mixin
+  @include m.arrow;
   color: black;
-  margin-bottom: 30px;
 }
 
 main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include m.flex-align(column, center);
 }
 
 .main__team {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include m.flex-align(column, center);
   padding: 20px 40px;
 
   @include m.tablet {
     width: 50%;
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding: 20px 80px;
+    //padding: 20px 80px; --> kolla detta
   }
 }
 
 .main__team__wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px;
-
+  @include m.flex-align(column, center);
   @include m.tablet {
     flex-direction: row;
     flex-wrap: wrap;
@@ -240,20 +208,14 @@ main {
 }
 
 .footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-
+  @include m.flex(column, flex-start, center);
   font-size: 1.5rem;
   color: v.$primary-color;
   background-color: black;
   line-height: 50px;
 
   @include m.tablet {
-    flex-direction: row;
-    align-items: start;
-    justify-content: space-around;
+    @include m.flex(row, space-around, start);
     padding: 30px;
   }
 
@@ -266,19 +228,23 @@ main {
 }
 
 .footer__socials {
+  //kolla align + justify
   display: flex;
   gap: 20px;
 }
 
 .socials__icons {
-  display: flex;
-  flex-direction: column;
+  @include m.flex-align(column, start);
   gap: 30px;
   padding-top: 8px;
 }
 
 .socials__name {
-  display: flex;
-  flex-direction: column;
+  @include m.flex-align(column, start);
   line-height: 50px;
+
+  .socials__link {
+    text-decoration: none;
+    color: v.$primary-color;
+  }
 }

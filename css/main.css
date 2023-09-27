@@ -1,6 +1,3 @@
-/*@mixin arrow {
-          ta bort??
-}*/
 @keyframes hidden {
   0% {
     background-color: white;
@@ -62,42 +59,41 @@ header {
   color: white;
 }
 
-.hamb {
-  cursor: pointer;
-  padding: 30px 20px;
+.header__hamburger {
   display: flex;
+  flex-direction: row;
   justify-content: flex-end;
+  padding: 30px 20px;
   background-color: rgba(255, 255, 255, 0.1);
 }
 @media screen and (min-width: 768px) {
-  .hamb {
+  .header__hamburger {
     display: none;
   }
 }
-.hamb-line {
+.header__hamburger__line {
   background-color: white;
   height: 4px;
   width: 27px;
   border-radius: 5px;
   position: relative;
 }
-.hamb-line::before, .hamb-line::after {
+.header__hamburger__line::before, .header__hamburger__line::after {
   background-color: white;
   content: "";
-  display: block;
   position: absolute;
   height: 100%;
   width: 100%;
   border-radius: 5px;
 }
-.hamb-line::before {
+.header__hamburger__line::before {
   top: 9px;
 }
-.hamb-line::after {
+.header__hamburger__line::after {
   top: -9px;
 }
 
-.side-menu {
+.header__checkbox {
   display: none;
 }
 
@@ -110,9 +106,10 @@ header {
 }
 @media screen and (min-width: 768px) {
   .nav__list {
-    visibility: visible;
+    display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    visibility: visible;
     background-color: rgba(255, 255, 255, 0.1);
   }
 }
@@ -121,39 +118,39 @@ header {
     margin: 20px 25px;
   }
 }
-.nav__list a {
+.nav__list__item__link {
   text-decoration: none;
   color: white;
   font-size: 1.2rem;
   line-height: 1.2;
 }
-.nav__list a:active {
+.nav__list__item__link:active {
   text-decoration: underline;
 }
 @media screen and (min-width: 768px) {
-  .nav__list a:hover {
+  .nav__list__item__link:hover {
     text-decoration: underline;
   }
 }
 
-.side-menu:checked ~ nav .nav__list {
+.header__checkbox:checked ~ nav .nav__list {
   visibility: visible;
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.side-menu:checked ~ .hamb .hamb-line::before {
+.header__checkbox:checked ~ .header__hamburger .header__hamburger__line::before {
   animation: rotate-lower;
   animation-duration: 0.25s;
   animation-fill-mode: forwards;
 }
 
-.side-menu:checked ~ .hamb .hamb-line::after {
+.header__checkbox:checked ~ .header__hamburger .header__hamburger__line::after {
   animation: rotate-upper;
   animation-duration: 0.25s;
   animation-fill-mode: forwards;
 }
 
-.side-menu:checked ~ .hamb .hamb-line {
+.header__checkbox:checked ~ .header__hamburger .header__hamburger__line {
   animation: hidden;
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
@@ -186,8 +183,8 @@ header {
 .arrow--black {
   text-align: center;
   font-size: 2rem;
+  margin-bottom: 20px;
   color: black;
-  margin-bottom: 30px;
 }
 
 main {
@@ -200,17 +197,11 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   padding: 20px 40px;
 }
 @media screen and (min-width: 768px) {
   .main__team {
     width: 50%;
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding: 20px 80px;
   }
 }
 
@@ -218,7 +209,6 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px;
 }
 @media screen and (min-width: 768px) {
   .main__team__wrapper {
@@ -303,9 +293,10 @@ main {
 }
 @media screen and (min-width: 768px) {
   .footer {
+    display: flex;
     flex-direction: row;
-    align-items: start;
     justify-content: space-around;
+    align-items: start;
     padding: 30px;
   }
 }
@@ -324,6 +315,7 @@ main {
 .socials__icons {
   display: flex;
   flex-direction: column;
+  align-items: start;
   gap: 30px;
   padding-top: 8px;
 }
@@ -331,7 +323,12 @@ main {
 .socials__name {
   display: flex;
   flex-direction: column;
+  align-items: start;
   line-height: 50px;
+}
+.socials__name .socials__link {
+  text-decoration: none;
+  color: white;
 }
 
 /*# sourceMappingURL=main.css.map */
